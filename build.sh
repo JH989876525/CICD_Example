@@ -10,26 +10,26 @@ IMAGE_NAME="ppes-rtsp"
 HOST_TYPE=$(uname -m)
 
 function run_docker {
-    sudo docker run --net=host -d \
+    docker run --net=host -d \
     "bluenviron/mediamtx:${VERSION}"
 }
 
 function build_docker_image {
     if [ "${HOST_TYPE}" == "aarch64" ]
     then
-        sudo docker build -t "bluenviron/mediamtx:${VERSION}" .
-        sudo docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
+        docker build -t "bluenviron/mediamtx:${VERSION}" .
+        docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
     else
-        sudo docker buildx build --platform linux/arm64 \
+        docker buildx build --platform linux/arm64 \
             --output type=docker,dest="${IMAGE_NAME}.tar" \
             -t "bluenviron/mediamtx:${VERSION}" .
     fi
-    sudo chmod 666 "${IMAGE_NAME}.tar"
+    chmod 666 "${IMAGE_NAME}.tar"
 }
 
 function save_docker_image {
-    sudo docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
-    sudo chmod 666 "${IMAGE_NAME}.tar"
+    docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
+    chmod 666 "${IMAGE_NAME}.tar"
 }
 
 function build_rpm {
