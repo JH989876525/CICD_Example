@@ -9,4 +9,4 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - run: ./build.sh
+    - run: ls
