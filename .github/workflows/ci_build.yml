@@ -14,4 +14,4 @@ jobs:
       with:
         path: main
     - name: Run
-      run: cd main && ./build.sh
+      run: cd main && ./build.sh all
