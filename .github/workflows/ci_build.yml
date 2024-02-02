@@ -14,4 +14,4 @@ jobs:
       with:
         path: main
     - name: Run
-      run: ls > wilson.txt
+      run: cd main && ./build.sh
