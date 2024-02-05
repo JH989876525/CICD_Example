@@ -42,7 +42,7 @@ case ${MODE} in
         build_rpm
     ;;
     image)
-        pull_docker_image
+        build_docker_image
     ;;
     run)
         run_docker
