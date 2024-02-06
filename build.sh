@@ -36,12 +36,19 @@ function build_rpm {
     rpmbuild -bb --target aarch64 rpm/ppes-rtsp.spec
 }
 
+function remove_all {
+    rm ./*.tar
+    rm -rf rpm/aarch64
+}
+
 case ${MODE} in
 	all)
+        remove_all
         build_docker_image
         build_rpm
     ;;
     image)
+        remove_all
         build_docker_image
     ;;
     run)
