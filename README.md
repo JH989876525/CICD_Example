@@ -50,3 +50,6 @@ This repo is a simple example for github action with local runner.
   ```
 - How to fix `Docker exporter feature is currently not supported for docker driver. Please switch to a different driver`.  
   Docker container `buildx` should be run without `sudo`.
+
+# Knowing issue
+How to fix `Docker exporter feature is currently not supported for docker driver. Please switch to a different driver` on jenkins.
