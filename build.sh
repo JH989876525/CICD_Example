@@ -14,12 +14,18 @@ function run_docker {
     "bluenviron/mediamtx:${VERSION}"
 }
 
+function setup_buildx {
+      docker buildx use mybuilder
+      docker buildx inspect mybuilder --bootstrap
+}
+
 function build_docker_image {
     if [ "${HOST_TYPE}" == "aarch64" ]
     then
         docker build -t "bluenviron/mediamtx:${VERSION}" .
         docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
     else
+        setup_buildx
         docker buildx build --platform linux/arm64 \
             --output type=docker,dest="${IMAGE_NAME}.tar" \
             -t "bluenviron/mediamtx:${VERSION}" .
