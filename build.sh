@@ -21,7 +21,7 @@ function build_docker_image {
         docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
     else
         docker buildx build --platform linux/arm64 \
-            --output type=docker \
+            --output type=docker,dest="${IMAGE_NAME}.tar" \
             -t "bluenviron/mediamtx:${VERSION}" .
     fi
     chmod 666 "${IMAGE_NAME}.tar"
