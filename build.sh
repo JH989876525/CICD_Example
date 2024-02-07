@@ -27,8 +27,9 @@ function build_docker_image {
     else
         # setup_buildx 
         docker buildx build --platform linux/arm64 \
-            --output type=docker,dest="${IMAGE_NAME}.tar" \
+            --output type=docker \
             -t "bluenviron/mediamtx:${VERSION}" .
+            # ,dest="${IMAGE_NAME}.tar" \
     fi
     chmod 666 "${IMAGE_NAME}.tar"
 }
