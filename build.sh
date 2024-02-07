@@ -15,7 +15,7 @@ function run_docker {
 }
 
 function setup_buildx {
-      docker buildx use mybuilder
+      docker buildx create --name mybuilder --use
       docker buildx inspect mybuilder --bootstrap
 }
 
@@ -25,11 +25,10 @@ function build_docker_image {
         docker build -t "bluenviron/mediamtx:${VERSION}" .
         docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
     else
-        # setup_buildx 
+        setup_buildx 
         docker buildx build --platform linux/arm64 \
             --output type=docker,dest="${IMAGE_NAME}.tar" \
             -t "bluenviron/mediamtx:${VERSION}" .
-            # ,dest="${IMAGE_NAME}.tar" \
     fi
     chmod 666 "${IMAGE_NAME}.tar"
 }
