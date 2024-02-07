@@ -25,7 +25,7 @@ function build_docker_image {
         docker build -t "bluenviron/mediamtx:${VERSION}" .
         docker save -o "${IMAGE_NAME}.tar" "bluenviron/mediamtx:${VERSION}"
     else
-        setup_buildx
+        # setup_buildx 
         docker buildx build --platform linux/arm64 \
             --output type=docker,dest="${IMAGE_NAME}.tar" \
             -t "bluenviron/mediamtx:${VERSION}" .
