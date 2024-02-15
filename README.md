@@ -5,10 +5,16 @@
  https://opensource.org/licenses/MIT
 -->
 
+- [Overview](#overview)
+- [Setup local runner](#setup-local-runner)
+- [FAQ](#faq)
+
 # Overview
 This repo is a simple example for github action with local runner.
 
 ![](doc/flow.png)
+
+Follow [this page](JENKINS.md) if using jenkins rather then using github action.
 
 # Setup local runner
 1. Open github settings page.
