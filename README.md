@@ -56,3 +56,6 @@ Follow [this page](JENKINS.md) if using jenkins rather then using github action.
   ```
 - How to fix `Docker exporter feature is currently not supported for docker driver. Please switch to a different driver`.  
   Docker container `buildx` should be run without `sudo`.
+
+# Knowing issue
+How to fix `Docker exporter feature is currently not supported for docker driver. Please switch to a different driver` on jenkins.
