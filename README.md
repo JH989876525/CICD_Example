@@ -8,6 +8,7 @@
 - [Overview](#overview)
 - [Setup local runner](#setup-local-runner)
 - [FAQ](#faq)
+- [Knowing issue](#knowing-issue)
 
 # Overview
 This repo is a simple example for github action with local runner.
@@ -58,4 +59,3 @@ Follow [this page](JENKINS.md) if using jenkins rather then using github action.
   Docker container `buildx` should be run without `sudo`.
 
 # Knowing issue
-How to fix `Docker exporter feature is currently not supported for docker driver. Please switch to a different driver` on jenkins.
